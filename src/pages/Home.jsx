@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { allFilms } from '../queries/allFilms';
 import { request } from 'graphql-request';
+import { Link } from 'react-router-dom';
 
 
 export const Home = () => {
@@ -22,7 +23,7 @@ export const Home = () => {
     return (
         <div>
             {data?.allFilms.films.map((item) =>{
-                return <p key={item.title}>{item.title}</p>;
+                return <Link to={`search/${item.id}`} key={item.title}>{item.title}</Link>
             })}
         </div>
     )
